@@ -1,0 +1,15 @@
+---
+version: '3.0'
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "443:443"
+    volumes:
+      - "${PWD}/configs/nginx.conf:/etc/nginx/conf.d/default.conf:ro"
+      - "${PWD}/static:/usr/share/nginx/html/static:ro"
+      - "${PWD}/cert:/etc/nginx/ssl:ro"
+  reportcollector:
+    build: ./reportcollector
+    ports:
+      - "3000:3000"
