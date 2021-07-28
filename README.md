@@ -21,4 +21,14 @@ requires sudo);
 
 ## How to test
 
-TBD.
+1. Navigate to `https://www.mydomain.local/` in your browser, the response should be `hello`
+1. Wait a little while your browser determines the moment to send a request to collector
+1. You will see a `POST  request to: www.mydomain.local /report-collector/` text in your logs
+1. You can manually request collected reports via GET `https://www.mydomain.local/report-collector/getRequests`
+
+## Cleaning up
+1. After you are done with testing remove any occurencies of mydomain in your hosts
+1. Optionally remove docker image using
+```
+docker rmi nel-example_reportcollector -f
+```

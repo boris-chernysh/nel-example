@@ -4,7 +4,7 @@ const requests = []
 
 http.createServer(
     function (req, res) {
-        if (req.url.startsWith('/getRequests')) {
+        if (req.url.startsWith('/report-collector/getRequests')) {
             res.setHeader('Content-type', 'application/json')
             res.end(JSON.stringify(requests))
 
